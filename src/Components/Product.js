@@ -1,5 +1,6 @@
 import React from 'react';
 import { PhotoContainer } from './PhotoContainer';
+// import faker from "faker"
 
 Headers["x-api-key"] = "4b2d65ec-7f94-4d55-aab6-a2d4c501afd8";
 
@@ -17,6 +18,12 @@ class Product extends React.Component {
         }
         return response.json()
           .then(allData => {
+            allData.forEach(item => {
+              item.name = "Cat"
+              // item.name = faker.name.firstName()
+              item.price = "3"
+              // item.price = faker.commerce.price()
+            });
             this.setState({ photos: allData });
           })
           .catch(err => {
@@ -27,6 +34,7 @@ class Product extends React.Component {
   }
 
   render() {
+    // you could manipulate the data here aswell
     return (
       <div className="main">
         <div className="header title">

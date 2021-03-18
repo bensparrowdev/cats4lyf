@@ -5,7 +5,7 @@ export const PhotoContainer = (props) => {
 
   const displayPhotos = () => {
     return props.photos.map(photos => {
-      return <Photo url={photos.url} />;
+      return <Photo url={photos.url} name={photos.name} price={photos.price} />;
     });
   };
 
